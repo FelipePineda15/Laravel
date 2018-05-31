@@ -18,6 +18,7 @@
                 <td>{{ $Producto['Nombre'] }}</td>
                 <td>{{ $Producto['ValorUnitario'] }}</td>
                 <td>{{ $Producto['Codigo'] }}</td>
+                <td><a href="{{url('Productos/'.$Producto['id'].'/edit')}}">Editar</a></td>
             </tr>
         @endforeach
     </tbody>

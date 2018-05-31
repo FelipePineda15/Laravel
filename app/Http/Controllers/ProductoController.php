@@ -23,28 +23,29 @@ class ProductoController extends Controller
     }
 
     public function create(){
-        $Productos = Producto::all();
-        return ('');
+        
     }
 
     public function destroy(){
-        $Productos = Producto::all();
-        return ('');
+        
     }
 
-    public function update(){
-        $Productos = Producto::all();
-        return ('');
+    public function update($Producto, Request $request){
+        $ObjProducto = Producto::findOrFail($Producto);
+        $ObjProducto->Nombre=$request->Nombre;
+        $ObjProducto->ValorUnitario =$request->ValorUnitario;
+        $ObjProducto->Codigo =$request->Codigo;
+        $ObjProducto->save();
+        return redirect('Productos');
     }
 
-    public function edit(){
-        $Productos = Producto::all();
-        return ('');
+    public function edit($Producto){
+        $Dato_Producto = Producto::findOrFail($Producto);
+        return view('Producto.edit',['Dato_Producto'=>$Dato_Producto]) ;
     }
 
     public function show(){
-        $Productos = Producto::all();
-        return ('');
+        
     }
 }
  
