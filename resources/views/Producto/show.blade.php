@@ -19,6 +19,13 @@
                 <td>{{ $Producto['ValorUnitario'] }}</td>
                 <td>{{ $Producto['Codigo'] }}</td>
                 <td><a href="{{url('Productos/'.$Producto['id'].'/edit')}}">Editar</a></td>
+                <td>
+                    <form action="{{url('Productos/'.$Producto['id'])}}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        {{csrf_field()}}
+                        <button href="{{url('Productos/'.$Producto['id'].'/edit')}}">Eliminar</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </tbody>

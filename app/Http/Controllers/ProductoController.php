@@ -22,12 +22,10 @@ class ProductoController extends Controller
         return redirect ('Productos');
     }
 
-    public function create(){
-        
-    }
-
-    public function destroy(){
-        
+    public function destroy($Producto){
+        $producto = Producto::find($Producto);
+        $producto->delete();
+        return redirect ('Productos');
     }
 
     public function update($Producto, Request $request){
@@ -42,10 +40,6 @@ class ProductoController extends Controller
     public function edit($Producto){
         $Dato_Producto = Producto::findOrFail($Producto);
         return view('Producto.edit',['Dato_Producto'=>$Dato_Producto]) ;
-    }
-
-    public function show(){
-        
     }
 }
  
